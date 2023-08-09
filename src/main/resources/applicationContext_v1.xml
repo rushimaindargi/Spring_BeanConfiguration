@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <context:annotation-config/>
+    <!--Using annotation-config & @AutoWired annotation in java for bean initialization-->
+    <bean id="carBean" class="org.spring.annotation.Car">
+        <property name="type" value="Sedan" />
+        <property name="model" value="BMW 740 2021" />
+        <property name="price" value="38000" />
+        <property name="combinedFuelEconomy" value="25" />
+    </bean>
+
+    <bean id="engineBean" class="org.spring.annotation.Engine">
+        <property name="horsePower" value="335" />
+        <property name="rpm" value="5500" />
+        <property name="displacement" value="3.0" />
+        <property name="cylinderConfig" value="I-6" />
+        <property name="fuel" value="premium unleaded" />
+    </bean>
+
+    <bean id="newEngineBean" class="org.spring.annotation.Engine">
+        <property name="horsePower" value="255" />
+        <property name="rpm" value="7500" />
+        <property name="displacement" value="3.0" />
+        <property name="cylinderConfig" value="I-8" />
+        <property name="fuel" value="premium" />
+    </bean>
+
+    <!--Using @AutoWired annotation on constructor in java for bean initialization-->
+    <!--<bean id="carBean" class="org.spring.annotation.Car">
+        <constructor-arg name="type" value="Sedan" />
+        <constructor-arg name="model" value="BMW 740 2021" />
+        <constructor-arg name="price" value="38000" />
+        <constructor-arg name="combinedFuelEconomy" value="25" />
+    </bean>
+
+    <bean id="engineBean" class="org.spring.annotation.Engine">
+        <property name="horsePower" value="335" />
+        <property name="rpm" value="5500" />
+        <property name="displacement" value="3.0" />
+        <property name="cylinderConfig" value="I-6" />
+        <property name="fuel" value="premium unleaded" />
+    </bean>-->
+
+</beans>

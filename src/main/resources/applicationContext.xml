@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <!--Using getters and setters for bean initialization-->
+    <!--<bean id="carBean" class="org.spring.auto.Car">
+        <property name="type" value="Sedan" />
+        <property name="model" value="BMW 740 2021" />
+        <property name="price" value="38000" />
+        <property name="combinedFuelEconomy" value="25" />
+        <property name="engine" ref="engineBean"/>
+    </bean>
+    <bean id="engineBean" class="org.spring.auto.Engine">
+        <property name="horsePower" value="335" />
+        <property name="rpm" value="5500" />
+        <property name="displacement" value="3.0" />
+        <property name="cylinderConfig" value="I-6" />
+        <property name="fuel" value="premium unleaded" />
+    </bean> -->
+
+    <!--Using parameterized constructor for bean instantiation-->
+    <!--<bean id="carBean" class="org.spring.auto.Car">
+        <constructor-arg index="0" name="type" value="Sedan" />
+        <constructor-arg index="1" name="model" value="BMW 740 2021" />
+        <constructor-arg index="2" name="price" value="38000" />
+        <constructor-arg index="3" name="combinedFuelEconomy" value="25" />
+        <constructor-arg index="4" name="engine" ref="engineBean"/>
+    </bean>
+    <bean id="engineBean" class="org.spring.auto.Engine">
+        <constructor-arg  name="horsePower" value="335" />
+        <constructor-arg  name="rpm" value="5500" />
+        <constructor-arg  name="displacement" value="3.0" />
+        <constructor-arg  name="cylinderConfig" value="I-6" />
+        <constructor-arg  name="fuel" value="premium unleaded" />
+    </bean>-->
+
+    <!--Using Combination of parameterized constructor & getter-setter for bean instantiation-->
+    <!--<bean id="carBean" class="org.spring.auto.Car">
+        <constructor-arg index="0" name="type" value="Sedan" />
+        <constructor-arg index="1" name="model" value="BMW 740 2021" />
+        <constructor-arg index="2" name="price" value="38000" />
+        <constructor-arg index="3" name="combinedFuelEconomy" value="25" />
+        <constructor-arg index="4" name="engine" >
+        <bean id="engineBean" class="org.spring.auto.Engine">
+            <property  name="horsePower" value="335" />
+            <property  name="rpm" value="5500" />
+            <property  name="displacement" value="3.0" />
+            <property  name="cylinderConfig" value="I-6" />
+            <property  name="fuel" value="premium unleaded" />
+        </bean>
+        </constructor-arg>
+    </bean>-->
+
+    <!--Using Autowire for injecting engineBean into Car with byName/byType--> <!--byName - the id should match with the property defined in the parent bean-->
+    <!--<bean id="carBean" class="org.spring.auto.Car" autowire="byType">
+        <property name="type" value="Sedan" />
+        <property name="model" value="BMW 740 2021" />
+        <property name="price" value="38000" />
+        <property name="combinedFuelEconomy" value="25" />
+    </bean>
+    <bean id="engineBean" class="org.spring.auto.Engine">
+        <property name="horsePower" value="335" />
+        <property name="rpm" value="5500" />
+        <property name="displacement" value="3.0" />
+        <property name="cylinderConfig" value="I-6" />
+        <property name="fuel" value="premium unleaded" />
+    </bean>-->
+
+    <!--Using autoWire by construtor-->
+    <bean id="carBean" class="org.spring.auto.Car" autowire="constructor">
+        <constructor-arg index="0" name="type" value="Sedan" />
+        <constructor-arg index="1" name="model" value="BMW 740 2021" />
+        <constructor-arg index="2" name="price" value="38000" />
+        <constructor-arg index="3" name="combinedFuelEconomy" value="25" />
+    </bean>
+    <bean id="engineBean" class="org.spring.auto.Engine">
+        <constructor-arg  name="horsePower" value="335" />
+        <constructor-arg  name="rpm" value="5500" />
+        <constructor-arg  name="displacement" value="3.0" />
+        <constructor-arg  name="cylinderConfig" value="I-6" />
+        <constructor-arg  name="fuel" value="premium unleaded" />
+    </bean>
+
+</beans>

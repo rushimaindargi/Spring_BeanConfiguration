@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+    <context:annotation-config/>
+
+    <bean id="carBean" class="org.spring.annotation.Car">
+        <property name="type" value="Sedan" />
+        <property name="model" value="BMW 740 2021" />
+        <property name="price" value="38000" />
+        <property name="combinedFuelEconomy" value="25" />
+    </bean>
+
+    <bean id="engineBMW" class="org.spring.annotation.Engine">
+        <property name="horsePower" value="335" />
+        <property name="rpm" value="5500" />
+        <property name="displacement" value="3.0" />
+        <property name="cylinderConfig" value="I-6" />
+        <property name="fuel" value="premium unleaded" />
+    </bean>
+
+    <bean id="gearboxBean" class="org.spring.annotation.GearBox">
+        <property name="type" value="Auto"/>
+        <property name="numOfGear" value="6"/>
+    </bean>
+
+    <bean id="newEngineBean" class="org.spring.annotation.Engine">
+        <property name="horsePower" value="255" />
+        <property name="rpm" value="7500" />
+        <property name="displacement" value="3.0" />
+        <property name="cylinderConfig" value="I-8" />
+        <property name="fuel" value="premium" />
+    </bean>
+    <bean id="newCarBean" class="org.spring.annotation.Car">
+        <property name="type" value="Sedan" />
+        <property name="model" value="BMW 740 2021" />
+        <property name="price" value="38000" />
+        <property name="combinedFuelEconomy" value="25" />
+
+        <property name="notes">
+            <list>
+                <value>IC Engine</value>
+                <value>3 years Service Included</value>
+            </list>
+        </property>
+        <property name="seatOptions">
+            <set>
+                <ref bean="seatOne"/>
+                <ref bean="seatTwo"/>
+                <ref bean="seatThree"/>
+            </set>
+        </property>
+    </bean>
+
+    <bean id="seatOne" class="org.spring.annotation.Seats">
+        <property name="type" value="bucket Leather"/>
+        <property name="heated" value="true"/>
+        <property name="colour" value="black"/>
+    </bean>
+
+    <bean id="seatTwo" class="org.spring.annotation.Seats">
+        <property name="type" value="bucket Vinyl"/>
+        <property name="heated" value="false"/>
+        <property name="colour" value="brown"/>
+    </bean>
+
+    <bean id="seatThree" class="org.spring.annotation.Seats">
+        <property name="type" value="bucket Leather"/>
+        <property name="heated" value="true"/>
+        <property name="colour" value="Cherry Red"/>
+    </bean>
+
+    <!--Using @AutoWired annotation on constructor in java for bean initialization-->
+    <!--<bean id="carBean" class="org.spring.annotation.Car">
+        <constructor-arg name="type" value="Sedan" />
+        <constructor-arg name="model" value="BMW 740 2021" />
+        <constructor-arg name="price" value="38000" />
+        <constructor-arg name="combinedFuelEconomy" value="25" />
+    </bean>
+
+    <bean id="engineBean" class="org.spring.annotation.Engine">
+        <property name="horsePower" value="335" />
+        <property name="rpm" value="5500" />
+        <property name="displacement" value="3.0" />
+        <property name="cylinderConfig" value="I-6" />
+        <property name="fuel" value="premium unleaded" />
+    </bean>-->
+
+</beans>
